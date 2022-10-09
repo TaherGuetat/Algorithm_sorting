@@ -1,0 +1,37 @@
+FUNCTION insertion_sort(arr : ARRAY_OF INTEGER) : INTEGER
+VAR
+    i,j,current:INTEGER
+BEGIN
+    FOR i FROM 1 TO arr.length  DO
+        current:=arr[i];
+        j:=i-1;
+        WHILE (j>=0 AND arr[j]>current) DO
+            arr[j+1]:= arr[j];
+            j:=j-1;
+        END_WHILE
+        arr[j+1]:=current;
+    END_FOR
+    RETURN arr ;
+END
+
+FUNCTION printArray(tab,n) : INTEGER
+VAR
+    i,n:INTEGER
+    tab:ARRAY_OF INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 DO
+        Write('the array is',tab[i])
+    END_FOR
+    RETURN tab[i] ;
+END
+
+ALGORITHM insertion
+VAR
+    n:INTEGER
+BEGIN
+    Write('give the size of the array'),
+    Read(n);
+    insertion_sort(arr,n);
+    printArray(tab,n);
+
+END
